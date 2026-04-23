@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Color de la barra de direcciones en navegadores móviles -->
+    <meta name="theme-color" content="#000C34">
+    <title>Ithiel TV | Inicio</title>
+    <!-- Font Awesome 6 - Librería de íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Estilos principales del sitio -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="inicio-top" Style="overflow: hidden;" >
+
+<!--animacion de entrada-->
+<div id="loader"
+class="loader-wrapper">
+<div class="loader-container">
+<img src="assets/
+logooficialdeithiel.png"
+class="loader-logo">
+      <div class="spinner"></div>
+    </div>
+</div>
+
+
+
+
+    <!-- OVERLAY: Capa oscura detrás del menú lateral -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- MENÚ LATERAL (SIDEBAR) - Navegación principal -->
+    <nav class="sidebar" id="menu">
+        <!-- Botón para cerrar el menú (X) -->
+        <div style="font-size:35px; padding:20px; cursor:pointer; text-align:right;" id="cerrar">×</div>
+        <!-- Enlaces de navegación -->
+        <a href="index.html" onclick="cerrar()">Inicio</a>
+        <a href="catalogo.html" onclick="cerrar()">Catálogo</a>
+        <a href="vivo.html" onclick="cerrar()">En Vivo</a>
+        <a href="conocenos.html" onclick="cerrar()">Conócenos</a>
+    </nav>
+
+    <!-- HEADER: Barra superior fija -->
+    <header>
+        <!-- Botón hamburguesa para abrir el menú -->
+        <div class="btn-m" id="abrir">☰</div>
+        <div class="logo-container">
+            <!-- Botón del logo que vuelve al inicio -->
+            <button onclick="irAlInicio()" class="logo-btn">
+                <img src="assets/logooficialdeithiel.png" alt="Ithiel TV" class="logo-main">
+            </button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN PRINCIPAL: CARRUSEL DE IMÁGENES -->
+    <section id="inicio">
+        <div class="slider" id="slider">
+            <div class="slides" id="slides">
+                <!-- Diapositiva 1 - Bienvenida -->
+                <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen1.jpg')"><h3>Bienvenidos a Ithiel Televisión</h3></div>
+                <!-- Diapositiva 2 - Mensajes de Esperanza -->
+                <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen2.jpg')"><h3>Mensajes de Esperanza</h3></div>
+                <!-- Diapositiva 3 - Coros y alabanzas -->
+                <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen3.jpg')"><h3>Coros y alabanzas</h3></div>
+                <!-- Diapositiva 4 - Imagen 4 -->
+                <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen4.jpg')"><h3>Adoración</h3></div>
+            </div>
+            <!-- PUNTOS INDICADORES del carrusel -->
+            <div class="dots" id="dots-container">
+                <div class="dot active" onclick="irASlide(0)"></div>
+                <div class="dot" onclick="irASlide(1)"></div>
+                <div class="dot" onclick="irASlide(2)"></div>
+                <div class="dot" onclick="irASlide(3)"></div>
+            </div>
+        </div>
+    </section>
+    
+    
+   <!--imagenes de ithiel de tv -->
+
+    <section class="sec">
+    <div class="t-sec"><div class="linea"></div>Cultos</div>
+    <div class="grid-container">
+        
+        <div class="grid-card" onclick="abrirImagen('assets/imagen1.jpg', ' Lema Familia', 'Lema de este año 2026.')">
+            <img src="assets/imagen1.jpg" alt="Título 1">
+            <div class="grid-title">Lema Familia</div>
+        </div>
+
+        <div class="grid-card" onclick="abrirImagen('assets/imagen2.jpg', 'Hermano alabe al señor', 'Foto de la alabanza hermano alabe el señor ')"><img src="assets/imagen2.jpg" alt="Hermano alabe al señor">
+            <div class="grid-title">Hermano alabe al señor</div>
+    </div>
+
+
+
+ <div class="grid-card" onclick="abrirImagen('assets/imagen2.jpg', 'Hermano alabe al señor', 'Foto de la alabanza hermano alabe el señor ')"><img src="assets/imagen2.jpg" alt="Hermano alabe al señor">
+            <div class="grid-title">Hermano alabe al señor</div></div>
+    </div>
+</section>
+
+
+
+<div id="modalImagen" class="modal-viewer">
+    <span class="close-modal" onclick="cerrarImagen()">&times;</span>
+    
+    <div class="modal-content">
+        <div class="modal-wrapper">
+            <img id="imgFull" src="" alt="Imagen Completa">
+            
+            <div class="modal-info-container">
+                <h2 id="modalTitulo"></h2>
+                <p id="modalDescripcion"></p>
+                
+                <div class="modal-actions">
+                    <a id="btnDescargar" href="" download class="btn-action btn-download">
+                        <i class="fas fa-download"></i> Descargar
+                    </a>
+                    <button id="btnCompartir" class="btn-action btn-share" onclick="compartirContenido()">
+                        <i class="fas fa-share-alt"></i> Compartir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<section class="sec">
+    <div class="t-sec"><div class="linea"></div>Visitas</div>
+    <div class="grid-container">
+        
+        <div class="grid-card" onclick="abrirImagen('assets/visita1.jpg', 'Mañanitas', 'Embarcandose a la embarcasion despues del culto en las mañanitas')">
+            <img src="assets/visita1.jpg" alt="Visita">
+            <div class="grid-title">Mañanitas</div>
+        </div>
+
+        <div class="grid-card" onclick="abrirImagen('assets/visita2.jpg', 'Mañanitas', 'Los embarcados despues del culto en las mañanias')">
+            <img src="assets/visita2.jpg" alt="Alabanza">
+            <div class="grid-title">Mañanitas</div>
+        </div>
+        </div>
+</section>
+
+
+<!--Momentos -->
+
+<section class="sec" style="margin-top: -10px;"> 
+    <div class="t-sec"><div class="linea"></div>Momentos Especiales</div>
+    <div class="grid-container">
+        
+        <div class="grid-card" onclick="abrirImagen('assets/momentos1.jpg', 'Cumpleaños de Noris', 'Descripción')">
+            <img src="assets/momentos1.jpg" alt="Nuevo 1">
+            <div class="grid-title">Cumpleaños de noriz 1</div>
+        </div>
+        
+</section>
+
+
+
+
+    <!-- FOOTER: Pie de página -->
+  <footer class="footer-rcn-style">
+    <div class="f-content">
+        <div class="f-logo-container">
+            <img src="assets/logooficialdeithiel.png" alt="Ithiel TV" class="f-logo">
+        </div>
+        <div class="f-redes-rcn">
+            <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com/ithieltv" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://instagram.com/ithiel.tv" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@ithieltv" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a
+ 
+             
+
+<a href="https://whatsapp.com/channel/0029ValvgwzJkK78LKCbSD3l" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+               
+         
+
+  
+        </div>
+        <div class="f-divider"></div>
+        <div class="f-copyright">
+            <p>© 2026 ITHIEL TV</p>
+            <p>Todos los derechos reservados.</p>
+        </div>
+        <div class="f-divider"></div>
+        <div class="f-legal-links">
+            <a href="terminos.html">Términos y condiciones</a>
+            <a href="privacidad.html">Política de datos personales</a>
+            <a href="#">Política de Cookies</a>
+        </div>
+    </div>
+</footer>
+
+  
+  
+  
+  
+    <!-- JavaScript principal -->
+    <script src="js/main.js"></script>
+</body>
+</html>
