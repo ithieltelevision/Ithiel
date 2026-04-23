@@ -1,0 +1,621 @@
+/* === VARIABLES GLOBALES======= */
+:root {
+    --fondo: #10001D;      /* Color de fondo principal*/
+    --menu: #000C34;        /* Color del menú lateral*/
+    --Blanco: #FFFFFF;       /* Color de acento */
+    --morado: #a333c8;      /* Color de acento morado */
+}
+
+/*====== ESTILOS BASE ======== */
+body { 
+    margin: 0; 
+    background: var(--fondo); 
+    color:#ffffff; 
+    font-family: 'Segoe UI', sans-serif; 
+    overflow-x: hidden;          /* Evita desplazamiento horizontal no deseado */
+    scroll-behavior: smooth;     /* Desplazamiento suave al hacer clic en enlaces */
+}
+
+
+/*animacion de entrada*/
+.loader-wrapper {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#10001D;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:opacity 0.6s ease;
+}
+
+.loader-container{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/*logo en el centro*/
+.loader-logo{
+    width: 80px;
+    height:auto;
+    position:absolute;
+}
+/*circulo animado*/
+.spinner{
+    width: 120px;
+    height: 120px;
+    border-radius:50%;
+    background: conic-gradient(from 0deg,transparent 20%, #ffffff);
+
+    /* el 2px grosor de la linea*/
+    -webkit-mask: 
+    radial-gradient(farthest-side,transparent calc(100% - 4px), black 0);
+    
+    mask:
+    radial-gradient(farthest-side,
+    transparent calc(100% - 4px), black 0);
+    
+
+    animation: spin 0.8s linear infinite;
+}
+
+/*animaciom de rotacion*/
+@keyframes spin {
+    0% { transform:rotate(0deg);}
+    100%{ transform:rotate(360deg);}
+}
+
+
+
+
+
+/*=HEADER O BARRA DE NAVEGACIÓN= */
+header {
+    display: flex; 
+    align-items: center; 
+    padding: 10px 15px;
+    /* Fondo */
+    background: rgba(16, 0, 29, 0.8);  
+     /*Efectodesenfoque (vidrio)*/
+    backdrop-filter: blur(10px);
+    /* Compatibilidad Safari */   
+    -webkit-backdrop-filter: blur(10px);      
+    /* Fijo al hacerscroll */
+    position: sticky;  
+    top: 0; 
+    /* Por encima del contenido */
+    z-index: 1000;              
+    /*Borde de la barra*/
+    border-bottom: 0px solid rgba(255, 255, 255,0);
+    /*Sombra de la barra*/
+    box-shadow:0 -30px 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* Botón del menú hamburguesa */
+.btn-m { 
+    font-size: 28px; 
+    cursor: pointer; 
+    margin-right: 15px; 
+    color: var(--verde); 
+}
+
+/* Contenedor del logo */
+.logo-container { 
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+}
+
+/* Botón del logo (para volver al inicio) */
+.logo-btn { 
+    background: none; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer; 
+}
+
+/* Imagen del logo principal */
+.logo-main { 
+    height: 40px; 
+    width: auto; 
+    display: block; 
+}
+
+/*==== MENÚ LATERAL (SIDEBAR) == */
+.sidebar {
+    position: fixed; 
+    top: 0; 
+    left: -100%;                
+    /* Oculto fuera d la pantalla */
+    width: 280px; 
+    height: 100%;
+    background: rgba(16, 0, 29,1);
+    backdrop-filter: blur(0px);
+    transition: 0.5s cubic-bezier(0.3, 0.2, 0, 0);  
+    /* Animación suave */
+    z-index: 2000; 
+    padding-top: 20px;
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.9);
+    border-right: 1px solid rgba(255, 255, 255, 0);
+}
+
+/* Clase activa mostrar el menú */
+.sidebar.active { left: 0; }
+
+/* Enlaces del menú lateral */
+.sidebar a { 
+    display: block; 
+    padding: 15px 25px; 
+    color: white; 
+    text-decoration: none; 
+    font-size: 19px; 
+    border-left: 4px solid transparent;   /* Espacio para el borde hover */
+}
+
+/* Efecto hover enlaces del menú */
+.sidebar a:hover { 
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--verde);  /* Borde verde al pasar el mouse */
+}
+
+/*===== CARRUSEL DE IMÁGENES === */
+/* carrusel */
+.slider { 
+    width: 100%; 
+    aspect-ratio: 16 / 9;       
+    /* Proporción pantalla ancha */
+    position: relative; 
+    overflow: hidden;           /* Oculta el desbordamiento */
+    touch-action: pan-y;        
+    /* Mejora el touch desplazamiento vertical */
+}
+
+/*Contenedor de toda diapositivas */
+.slides { 
+    display: flex; 
+    width: 400%;                /* 4 diapositivas = 400% del ancho */
+    height: 100%; 
+    transition: transform 0.5s cubic-bezier(0,.51,.07,.04); 
+    will-change: transform;     /* Optimización de rendimiento */
+}
+
+/* Cada diapositiva individual */
+.slide { 
+    width: 100%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    align-items: flex-end;       /* Texto en la parte inferior */
+    padding: 40px 20px; 
+    box-sizing: border-box;
+}
+
+/* Título de cada diapositiva */
+.slide h3 { 
+    font-size: 24px; 
+    margin: 0; 
+}
+
+/* Contenedor de los puntos indicadores del carrusel */
+.dots {
+    position: absolute; 
+    bottom: 20px; 
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    gap: 8px; 
+    z-index: 10;
+}
+
+/* Punto indicador individual */
+.dot {
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3); 
+    cursor: pointer; 
+    transition: 0.4s;
+}
+
+/* Punto activo (diapositiva actual) */
+.dot.active { 
+    background:#ffffff; 
+    width: 25px;                /* Se alarga horizontalmente */
+    border-radius: 5px; 
+}
+
+/* ==================== SECCIONES GENERALES ==================== */
+/* Contenedor de sec*/
+.sec { padding: 15px; }
+
+/* Título de sección con línea decorativa */
+.t-sec { 
+    display: flex; 
+    align-items: center; 
+    font-size: 20px; 
+    margin: 25px 0 15px; 
+    font-weight: bold; 
+}
+
+/* Línea decorativa verde junto al título */
+.linea { 
+    width: 5px; 
+    height: 25px; 
+    background: var(--Blanco); 
+    margin-right: 12px; 
+    border-radius: 10px; 
+}
+
+/* ==================== FILTROS DEL CATÁLOGO ==================== */
+.filtros { 
+    display: flex; 
+    gap: 10px; 
+    overflow-x: auto;           /* Scroll horizontal en móviles */
+    padding: 10px 0; 
+    scrollbar-width: none;      /* Oculta scrollbar en Firefox */
+}
+
+/* Oculta scrollbar en Chrome/Safari */
+.filtros::-webkit-scrollbar { display: none; }
+
+/* Botón de filtro */
+.btn-f { 
+    background: #1a1a24; 
+    border: 1px solid #333; 
+    color:#ffffff; 
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    white-space: nowrap;        /* Evita que el texto se divida */
+    cursor: pointer; 
+}
+
+/* Botón de filtro activo */
+.btn-f.active { 
+    background: var(--verde); 
+    color: black; 
+    font-weight: bold; 
+}
+
+/*=== TARJETAS DE VIDEOS ===== */
+.card { 
+    background: #16161f; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    margin-bottom: 25px; 
+}
+
+/* Contenedor responsivo de video (aspect ratio 16:9) */
+.vid { 
+    position: relative; 
+    padding-bottom: 56.25%;     /* 9/16 = 56.25% para mantener proporción */
+    height: 0; 
+    background: #000; 
+}
+
+/* Iframe del video posicionado absolutamente */
+.vid iframe { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    border: 0; 
+}
+
+/* Información del video (título/descripción) */
+.v-info { 
+    padding: 15px; 
+    font-weight: 500; 
+    color:#ffffff; 
+}
+
+/* === SECCIÓN CONÓCENOS==== */
+.conocenos-box {
+    background: linear-gradient(145deg, #000C34, #000C34);
+    border-radius: 10px;
+    padding: 25px;
+    border: 0px solid #222;
+}
+
+/* Imagen de la sección Conócenos */
+.conocenos-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;          /* Ajusta la imagen sin distorsión */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Párrafos de sección Conócenos */
+.conocenos-box p {
+    line-height: 1.6;
+    color: #FFFFFF;
+}
+
+/* FOOTER: Pie de página */
+.footer-rcn-style {
+    background-color: var(--fondo); /* Tu azul oscuro #10001D */
+    padding: 60px 0; /* Más espacio vertical para elegancia */
+    width: 100%;
+    position: relative;
+}
+.footer-rcn-style .f-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px; /* Margen para que el texto no toque bordes en móvil */
+}
+/* Estilo del Logo */
+.footer-rcn-style .f-logo {
+    height: 55px;
+    margin-bottom: 35px;
+    filter: brightness(1.1); /* Resalta un poco el logo sobre el fondo */
+}
+/* Iconos de Redes (Sutiles y blancos) */
+.f-redes-rcn {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.f-redes-rcn a {
+    color: #ffffff;
+    font-size: 22px;
+    opacity: 1;
+    transition: transform 0.3s, opacity 0.2s;
+}
+.f-redes-rcn a:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+/*Líneas divisoras y sutiles */
+.f-divider {
+    height: 1px;
+    /* Opacidad muy baja (8%) "coloreada" en PC */
+    background: rgba(255, 255, 255, 0.08); 
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: none;
+}
+/* Bloque de Copyright */
+.f-copyright p {
+    margin: 8px 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+/* Enlaces Legales Inferiores */
+.f-legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.f-legal-links a {
+    color:#ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.f-legal-links a:hover {
+    opacity: 1;
+}
+/* Escudo scroll horizontal por las líneas 100vw */
+body {
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+/* ==== OVERLAY (FONDO OSCURO) == */
+.overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none; 
+    z-index: 1500; 
+}
+
+/* Overlay activo */
+.overlay.active { display: block; }
+
+/* == ANIMACIONES ======== */
+/* Animación de pulso para el indicador "EN VIVO" */
+@keyframes pulse { 
+    0% { opacity: 1; } 
+    50% { opacity: 0.5; }        /* Se atenúa a la mitad */
+    100% { opacity: 1; } 
+}
+
+/*= MEDIA QUERIES (RESPONSIVE)== */
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Mantiene proporción del carrusel en móviles */
+    .slider {
+        aspect-ratio: 16 / 9;
+    }
+    /* Reduce tamaño de fuente de los títulos del carrusel */
+    .slide h3 {
+        font-size: 18px;
+    }
+}
+/* imagenes de ithiel */
+.grid-container {
+    display: flex;             
+    gap: 15px;
+    /*arriba,derecha,abajo,
+    izquierda*/
+    padding: 0px 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none;
+
+    margin-left:  -15px; 
+    margin-right: -15px;
+    
+    
+}
+    
+.grid-container::-webkit-scrollbar {
+    display: none;             /* Oculta la barra en Chrome/Safari */
+}
+
+.grid-card {
+    flex: 0 0 52%;             /* Tamaño pequeño para que quepan varias */
+    max-width: 185px;
+    scroll-snap-align:center ;
+    cursor: pointer;
+}
+
+.grid-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;      
+/* Mismo tamaño horizontal para todas */
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.grid-title {
+    font-size: 15px;
+    margin-top: 6px;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+/* --- Estilos de la Ventana Modal --- */
+.modal-viewer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.98);
+    z-index: 5000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    overflow-y: auto; /* Permite scroll si el contenido es muy alto */
+}
+
+.modal-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-wrapper {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Todo uno debajo de otro */
+    align-items: center;
+}
+
+/*imagen completa*/
+
+#imgFull {
+    max-width: 105%;
+    max-height: 70vh; /* Limita altura para dejar espacio al texto */
+    border-radius: 0px;
+    object-fit: contain;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.modal-info-container {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+    color:#ffffff;
+}
+
+#modalTitulo {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: var(--verde);
+}
+
+#modalDescripcion {
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de Botones */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* Si no caben, bajan */
+}
+
+.btn-action {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-download {
+    background: var(--Blanco);
+    color: #0b1627;
+}
+
+.btn-share {
+    background: rgba(255, 255, 255, 0.1);
+    color:#ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-action:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color:#ffffff;
+    cursor: pointer;
+    z-index: 5010;
+}
+
+@media (max-width: 600px) {
+    #modalTitulo { font-size: 18px; }
+    #modalDescripcion { font-size: 14px; }
+    .modal-actions { justify-content: center; }
+}
+
