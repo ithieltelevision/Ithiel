@@ -45,7 +45,7 @@ body {
     height:auto;
     position:absolute;
 }
-/*circulo animado*/
+/*--------circulo animado -----*/
 .spinner{
     width: 120px;
     height: 120px;
@@ -96,7 +96,7 @@ header {
     box-shadow:0 -30px 20px 45px rgba(0, 0, 0, 0.6);
 }
 
-/* Botón del menú hamburguesa */
+/* Menú hamburguesa */
 .btn-m { 
     font-size: 28px; 
     cursor: pointer; 
@@ -136,8 +136,8 @@ header {
     height: 100%;
     background: rgba(16, 0, 29,1);
     backdrop-filter: blur(0px);
-    transition: 0.5s cubic-bezier(0.3, 0.2, 0, 0);  
-    /* Animación suave */
+    transition: 0.5s 
+    cubic-bezier(0.4, 0.7,.0, 0);  
     z-index: 2000; 
     padding-top: 20px;
     box-shadow: 10px 0 15px rgba(0, 0, 0, 0.9);
@@ -180,7 +180,8 @@ header {
     display: flex; 
     width: 400%;                /* 4 diapositivas = 400% del ancho */
     height: 100%; 
-    transition: transform 0.5s cubic-bezier(0,.51,.07,.04); 
+    transition: transform 0.5s 
+    cubic-bezier(0,.51,.07,.04); 
     will-change: transform;     /* Optimización de rendimiento */
 }
 
@@ -230,7 +231,7 @@ header {
     border-radius: 5px; 
 }
 
-/* ==================== SECCIONES GENERALES ==================== */
+/* == SECCIONES GENERALES ======= */
 /* Contenedor de sec*/
 .sec { padding: 15px; }
 
@@ -243,7 +244,7 @@ header {
     font-weight: bold; 
 }
 
-/* Línea decorativa verde junto al título */
+/* Línea decorativajunto al título */
 .linea { 
     width: 5px; 
     height: 25px; 
@@ -252,13 +253,13 @@ header {
     border-radius: 10px; 
 }
 
-/* ==================== FILTROS DEL CATÁLOGO ==================== */
+/* === CATÁLOGO ==== */
 .filtros { 
     display: flex; 
     gap: 10px; 
-    overflow-x: auto;           /* Scroll horizontal en móviles */
+    overflow-x: auto;
     padding: 10px 0; 
-    scrollbar-width: none;      /* Oculta scrollbar en Firefox */
+    scrollbar-width: none;    
 }
 
 /* Oculta scrollbar en Chrome/Safari */
@@ -277,7 +278,7 @@ header {
 
 /* Botón de filtro activo */
 .btn-f.active { 
-    background: var(--verde); 
+    background: var(--Blanco); 
     color: black; 
     font-weight: bold; 
 }
