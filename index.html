@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Color de la barra de direcciones en navegadores móviles -->
+    <!-- Color barra de direcciones en navegadores móviles -->
     <meta name="theme-color" content="#000C34">
     <title>Ithiel TV | Inicio</title>
     <!-- Font Awesome 6 - Librería de íconos -->
@@ -29,9 +29,9 @@ class="loader-logo">
     <!-- OVERLAY: Capa oscura detrás del menú lateral -->
     <div class="overlay" id="overlay"></div>
     
-    <!-- MENÚ LATERAL (SIDEBAR) - Navegación principal -->
+    <!-- MENÚ LATERAL (SIDEBAR) -->
     <nav class="sidebar" id="menu">
-        <!-- Botón para cerrar el menú (X) -->
+        <!-- Botón cerrar el menú(X) -->
         <div style="font-size:35px; padding:20px; cursor:pointer; text-align:right;" id="cerrar">×</div>
         <!-- Enlaces de navegación -->
         <a href="index.html" onclick="cerrar()">Inicio</a>
@@ -40,32 +40,37 @@ class="loader-logo">
         <a href="conocenos.html" onclick="cerrar()">Conócenos</a>
     </nav>
 
-    <!-- HEADER: Barra superior fija -->
+    <!-- HEADER: Barra superior -->
     <header>
-        <!-- Botón hamburguesa para abrir el menú -->
+        <!--Hamburguesa abrir el menú -->
         <div class="btn-m" id="abrir">☰</div>
         <div class="logo-container">
-            <!-- Botón del logo que vuelve al inicio -->
+            <!-- Botón logo que vuelve al inicio -->
             <button onclick="irAlInicio()" class="logo-btn">
                 <img src="assets/ithieltv.svg" alt="Ithiel TV" class="logo-main">
             </button>
         </div>
     </header>
 
-    <!-- SECCIÓN PRINCIPAL: CARRUSEL DE IMÁGENES -->
+    <!-- CARRUSEL DE IMÁGENES -->
     <section id="inicio">
         <div class="slider" id="slider">
             <div class="slides" id="slides">
-                <!-- Diapositiva 1 - Bienvenida -->
+                
+              <!-- Diapositiva 1 -->
                 <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen1.jpg')"><h3>Bienvenidos a Ithiel Televisión</h3></div>
-                <!-- Diapositiva 2 - Mensajes de Esperanza -->
+                
+            <!-- Diapositiva 2-->
                 <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen2.jpg')"><h3>Mensajes de Esperanza</h3></div>
-                <!-- Diapositiva 3 - Coros y alabanzas -->
+                
+              <!-- Diapositiva 3 -->
                 <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen3.jpg')"><h3>Coros y alabanzas</h3></div>
-                <!-- Diapositiva 4 - Imagen 4 -->
+                
+            <!-- Diapositiva 4 -->
                 <div class="slide" style="background-image: linear-gradient(to top, #10001D 0%, transparent 30%), url('assets/imagen4.jpg')"><h3>Adoración</h3></div>
             </div>
-            <!-- PUNTOS INDICADORES del carrusel -->
+            
+          <!-- PUNTOS INDICADORES-->
             <div class="dots" id="dots-container">
                 <div class="dot active" onclick="irASlide(0)"></div>
                 <div class="dot" onclick="irASlide(1)"></div>
@@ -76,30 +81,36 @@ class="loader-logo">
     </section>
     
     
-   <!--imagenes de ithiel de tv -->
-
+   <!--imagenes de ithieltv -->
+   
+    <!--Primera linea -->
     <section class="sec">
     <div class="t-sec"><div class="linea"></div>Cultos</div>
     <div class="grid-container">
         
+        <!--imagen 1-->
         <div class="grid-card" onclick="abrirImagen('assets/imagen1.jpg', ' Lema Familia', 'Lema de este año 2026.')">
             <img src="assets/imagen1.jpg" alt="Título 1">
             <div class="grid-title">Lema Familia</div>
         </div>
 
+        <!--imagen 2-->
         <div class="grid-card" onclick="abrirImagen('assets/imagen2.jpg', 'Hermano alabe al señor', 'Foto de la alabanza hermano alabe el señor ')"><img src="assets/imagen2.jpg" alt="Hermano alabe al señor">
             <div class="grid-title">Hermano alabe al señor</div>
     </div>
 
 
-
- <div class="grid-card" onclick="abrirImagen('assets/imagen2.jpg', 'Hermano alabe al señor', 'Foto de la alabanza hermano alabe el señor ')"><img src="assets/imagen2.jpg" alt="Hermano alabe al señor">
+       <!--imagen 3-->
+        <div class="grid-card" 
+       onclick="abrirImagen
+           ('assets/imagen2.jpg',  
+           'Hermano alabe al señor', 'Foto de la alabanza hermano alabe el señor ')"><img src="assets/imagen2.jpg" alt="Hermano alabe al señor">
             <div class="grid-title">Hermano alabe al señor</div></div>
     </div>
 </section>
 
 
-
+<!--cerrar abrir imagem-->
 <div id="modalImagen" class="modal-viewer">
     <span class="close-modal" onclick="cerrarImagen()">&times;</span>
     
@@ -124,10 +135,7 @@ class="loader-logo">
     </div>
 </div>
 
-
-
-
-
+<!--Segunda linea-->
 <section class="sec">
     <div class="t-sec"><div class="linea"></div>Visitas</div>
     <div class="grid-container">
@@ -145,7 +153,7 @@ class="loader-logo">
 </section>
 
 
-<!--Momentos -->
+<!--Tercera linea-->
 
 <section class="sec" style="margin-top: -10px;"> 
     <div class="t-sec"><div class="linea"></div>Momentos Especiales</div>
@@ -157,6 +165,8 @@ class="loader-logo">
         </div>
         
 </section>
+
+
 
 
 
@@ -182,8 +192,6 @@ class="loader-logo">
 </a>
 
                
-         
-
   
         </div>
         <div class="f-divider"></div>
