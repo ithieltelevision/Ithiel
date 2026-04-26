@@ -1,13 +1,10 @@
-/**
- * ==================== MENÚ LATERAL ====================
- * Controla la apertura, cierre y overlay del menú hamburguesa
- */
+/**==== MENÚ LATERAL =*/
 
 // Selección de elementos del DOM
 const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 
-// Evento para ABRIR el menú - se ejecuta solo si existe el botón 'abrir'
+// Evento para ABRIR el menú 
 if (document.getElementById('abrir')) {
     document.getElementById('abrir').onclick = () => { 
         if(menu) menu.classList.add('active');      // Muestra el menú
@@ -15,19 +12,17 @@ if (document.getElementById('abrir')) {
     }
 }
 
-/**
- * Función para CERRAR el menú lateral
- * Elimina las clases 'active' del menú y del overlay
- */
+/*Función para CERRAR el menú lateral*/
 function cerrar() { 
-    if(menu) menu.classList.remove('active'); 
-    if(overlay) overlay.classList.remove('active'); 
+menu?.classList.remove('active'); 
+overlay?.classList.remove('active'); 
 }
 
-// Asigna evento de cierre al botón 'cerrar' (X) si existe
-if (document.getElementById('cerrar')) document.getElementById('cerrar').onclick = cerrar;
+// Asigna evento de cierre x
+if (document.getElementById('cerrar')) 
+document.getElementById('cerrar').onclick = cerrar;
 
-// Asigna evento de cierre al overlay (clic fuera del menú)
+//cierre al hacer (clic fuera del menú)
 if (overlay) overlay.onclick = cerrar;
 
 /**
