@@ -138,15 +138,15 @@ header {
     z-index: 2000; 
     padding-top: 20px;
     transform:translateX(-100%);
-    transition:transform 0.3s
-    cubic-bezier(.4,.09,.01,.01);  
+    transition:transform 0.5s
+    cubic-bezier(0.25,0.46,0.45,0.94);  
     will-change:transform;
 }
 
 /* Clase activa mostrar el menú */
 .sidebar.active {
     transform:translateX(0);
-    box-shadow: 15px 0 50px 
+    box-shadow: 10px 0 15px 
     rgba(0, 0, 0, 0.9);
 }
 
@@ -172,8 +172,8 @@ header {
     visibility:hidden;
 
     /* suavidad */
-    transition:opacity 0.4s ease,
-    visibility 0.4s;
+    transition:opacity 0.5s ease,
+    visibility 0.5s;
     z-index: 1500;
 }
 
