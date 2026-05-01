@@ -1,0 +1,22 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Serie: Nuestra Personalidad Cristiana",
+      "url": "https://www.youtube.com/embed/videoseries?list=PLN6G8LjKatYE3z5otWJQfp3gxnsb1_9Gb",
+      "category": "predicacion"
+    },
+    {
+      "id": 2,
+      "title": "Alabanza: Tiempo de alabanza y Adoración",
+      "url": "https://www.youtube.com/embed/videoseries?list=PLN6G8LjKatYEV9vzxcICWud-a81nAzUEZ",
+      "category": "alabanza"
+    },
+    {
+      "id": 3,
+      "title": "Estudio: Introducción a los Evangelios",
+      "url": "https://www.youtube.com/embed/VIDEO_ID_3",
+      "category": "estudio"
+    }
+  ]
+}
