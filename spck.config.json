@@ -1,0 +1,9 @@
+{
+  "run": {
+    "type": "url",
+    "file": "index.html",
+    "ignoreCurrent": true,
+    "task": "",
+    "url": "http://localhost:6700/index.html"
+  }
+}

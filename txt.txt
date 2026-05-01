@@ -1,0 +1,33 @@
+MiProyecto/
+├── index.html
+├── catalogo.html
+├── conocenos.html
+├── vivo.html
+├── privacidad.html
+├── terminos.html
+├── css/
+│   └── styles.css
+├── js/
+│   ├── main.js
+│   ├── carousel.js
+│   ├── menu.js
+│   ├── filters.js
+│   ├── modal.js
+│   └── include.js
+├── assets/
+│   ├── img/
+│   │   ├── imagen1.jpg
+│   │   ├── imagen2.jpg
+│   │   ├── imagen3.jpg
+│   │   ├── imagen4.jpg
+│   │   ├── Visita1.jpg
+│   │   ├── Visita2.jpg
+│   │   └── momentos1.jpg
+│   └── icons/
+        ├── animacion.png
+│       └── ithieltv.svg
+├── data/
+│   └── videos.json
+└── components/
+    └── footer.html
+
