@@ -3,122 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Color de la barra de direcciones en navegadores móviles -->
     <meta name="theme-color" content="#000C34">
     <title>Ithel TV | Catálogo</title>
-    <!-- Font Awesome 6 - Librería de íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Estilos principales del sitio -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- OVERLAY: Capa oscura detrás del menú lateral -->
-    <div class="overlay" id="overlay"></div>
+
+<header>
+    <div class="btn-m" id="abrir">☰</div>
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="assets/icons/ithieltv.svg" alt="Ithiel TV" class="logo-main">
+        </a>
+    </div>
+</header>
+
+<section class="sec" id="catalogo">
+    <div class="t-sec"><div class="linea"></div> CATÁLOGO</div>
     
-    <!-- MENÚ LATERAL (SIDEBAR) - Navegación principal -->
-    <nav class="sidebar" id="menu">
-        <!-- Botón para cerrar el menú (X) -->
-        <div style="font-size:35px; padding:20px; cursor:pointer; text-align:right;" id="cerrar">×</div>
-        <!-- Enlaces de navegación -->
-        <a href="index.html" onclick="cerrar()">Inicio</a>
-        <a href="catalogo.html" onclick="cerrar()">Catálogo</a>
-        <a href="vivo.html" onclick="cerrar()">En Vivo</a>
-        <a href="conocenos.html" onclick="cerrar()">Conócenos</a>
-    </nav>
+    <div class="filtros">
+        <button id="btn-todo" class="btn-f active" onclick="filtrar('todo')">Todo</button>
+        <button class="btn-f" onclick="filtrar('predicacion')">Predicaciones</button>
+        <button class="btn-f" onclick="filtrar('alabanza')">Alabanzas</button>
+        <button class="btn-f" onclick="filtrar('estudio')">Estudios Bíblicos</button>
+    </div>
 
-    <!-- HEADER: Barra superior -->
-    <header>
-        <!-- Botón hamburguesa para abrir el menú -->
-        <div class="btn-m" id="abrir">☰</div>
-        <div class="logo-container">
-            <!-- Enlace del logo que lleva al inicio -->
-            <a href="index.html">
-                <img src="assets/ithieltv.svg" alt="Ithiel TV" class="logo-main">
-            </a>
+    <div id="lista-videos">
+        <div class="card item predicacion">
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLN6G8LjKatYE3z5otWJQfp3gxnsb1_9Gb" allowfullscreen></iframe>
+            </div>
+            <div class="v-info">Serie: Nuestra Personalidad Cristiana</div>
         </div>
-    </header>
 
-    <!-- SECCIÓN CATÁLOGO: Contenido principal de videos -->
-    <section class="sec" id="catalogo">
-        <!-- Título de la sección con línea decorativa -->
-        <div class="t-sec"><div class="linea"></div> CATÁLOGO</div>
+        <div class="card item alabanza">
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLN6G8LjKatYEV9vzxcICWud-a81nAzUEZ" allowfullscreen></iframe>
+            </div>
+            <div class="v-info">Alabanza: Tiempo de alabanza y Adoración</div>
+        </div>
         
-        <!-- FILTROS: Botones para categorizar videos -->
-        <div class="filtros">
-            <button id="btn-todo" class="btn-f active" onclick="filtrar('todo')">Todo</button>
-            <button class="btn-f" onclick="filtrar('predicacion')">Predicaciones</button>
-            <button class="btn-f" onclick="filtrar('alabanza')">Alabanzas</button>
-            <button class="btn-f" onclick="filtrar('estudio')">Estudios Bíblicos</button>
-        </div>
-
-        <!-- LISTA DE VIDEOS: Contenedor de tarjetas de video -->
-        <div id="lista-videos">
-            <!-- Tarjeta 1: Predicación - Serie: Nuestra Personalidad Cristiana -->
-            <div class="card item predicacion">
-                <div class="vid">
-                    <!-- Reproductor de YouTube con lista de reproducción -->
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLN6G8LjKatYE3z5otWJQfp3gxnsb1_9Gb" allowfullscreen></iframe>
-                </div>
-                <div class="v-info">Serie: Nuestra Personalidad Cristiana</div>
+        <div class="card item estudio">
+            <div class="vid">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
             </div>
-
-            <!-- Tarjeta 2: Alabanza - Tiempo de alabanza y adoración -->
-            <div class="card item alabanza">
-                <div class="vid">
-                    <!-- Reproductor de YouTube con lista de reproducción de alabanzas -->
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLN6G8LjKatYEV9vzxcICWud-a81nAzUEZ&si=kuYNsqTi51CY4heF" allowfullscreen></iframe>
-                </div>
-                <div class="v-info">Alabanza: Tiempo de la albanza y Adoración</div>
-            </div>
-            
-            <!-- Tarjeta 3: Estudio Bíblico - Introducción a los Evangelios -->
-            <div class="card item estudio">
-                <div class="vid">
-                    <!-- Reproductor de YouTube - VIDEO_ID_3 debe ser reemplazado con el ID real -->
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"></iframe>
-                </div>
-                <div class="v-info">Estudio: Introducción a los Evangelios</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER: Pie de página -->
-  <footer class="footer-rcn-style">
-    <div class="f-content">
-        <div class="f-logo-container">
-            <img src="assets/ithieltv.svg" alt="Ithiel TV" class="f-logo">
-        </div>
-        <div class="f-redes-rcn">
-            <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://facebook.com/ithieltv" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://instagram.com/ithiel.tv" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@ithieltv" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://watsapp.com/chanel/0029ValvgwzJkK78LKCbSD3l"targe="_blank">
-                <i class="fab 
-                fa-whatsapp"></i>
-                </a>
-        </div>
-        <div class="f-divider"></div>
-        <div class="f-copyright">
-            <p>© 2026 ITHIEL TV</p>
-            <p>Todos los derechos reservados.</p>
-        </div>
-        <div class="f-divider"></div>
-        <div class="f-legal-links">
-            <a href="#">Términos y condiciones</a>
-            <a href="privacidad.html">Política de datos personales</a>
-            <a href="#">Política de Cookies</a>
+            <div class="v-info">Estudio: Introducción a los Evangelios</div>
         </div>
     </div>
-</footer>
-   
-   
-   
-   
+</section>
 
-    <!-- JavaScript principal -->
-    <script src="js/main.js"></script>
+
+
+<!--SCRIPTS(orden correct de carga) -->
+<script src="js/carousel.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/main.js"></script>
+<script src="js/include.js"></script>
+
 </body>
 </html>
