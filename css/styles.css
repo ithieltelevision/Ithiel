@@ -2,19 +2,45 @@
 :root {
     --fondo: #10001D; 
     --menu: #000C34;
-    --Blanco: #FFFFFF;       
-    --morado: #a333c8;
+    --Blanco: #F5F5F5;       
+    --Azul:#2B3D8B;
+    --Purpura:#6A0E7B;
+    --Menta:#1EFFCE;
 }
+
+/*Declaracion fuente local*/
+@font-face {
+    font-family:'inter';
+    src: url('Inter-VariableFont_opsz,wght.ttf'),
+    format ('truetype-variations');
+    
+    font-weight: 100 900;
+    font-style:normal;
+}
+
+
 
 /*====== ESTILOS BASE ======== */
 body { 
     margin: 0; 
     background: var(--fondo); 
-    color:#ffffff; 
-    font-family: 'Segoe UI', sans-serif; 
-    overflow-x: hidden;          /* Evita desplazamiento horizontal no deseado */
-    scroll-behavior: smooth;     /* Desplazamiento suave al hacer clic en enlaces */
+    color:var(--Blanco); 
+    font-family:'inter', sans-serif;
+    font-weight:400;
+    
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+    /*Evita desplazam horizontal */
+    scroll-behavior: smooth;    
+    /*suave al hacer clic en enlaces */
 }
+
+.body.loaded{
+overflow-y:auto;
+}
+
+
+
 /*animacion de entrada*/
 .loader-wrapper {
     position: fixed;
@@ -27,23 +53,18 @@ body {
     justify-content:center;
     align-items:center;
     z-index:9999;
-    transition:opacity 0.9s ease;
-}
-
+    transition:opacity 0.9s ease;}
 .loader-container{
     position:relative;
     display:flex;
     justify-content:center;
-    align-items:center;
-}
-
+    align-items:center;}
 /*logo en el centro*/
 .loader-logo{
     width: 80px;
     height:auto;
-    position:absolute;
-}
-/*--------circulo animado -----*/
+    position:absolute;}
+/*circulo animado*/
 .spinner-png{
     position:absolute;
     width: 155px;
@@ -51,7 +72,6 @@ body {
     z-index: 10;
     animation: spin 1.2s linear infinite;
 }
-
 /*animaciom de rotacion*/
 @keyframes spin {
     0% { transform:rotate(0deg);}
@@ -66,7 +86,7 @@ header {
     padding: 10px 15px;
     /* Fondo */
     background: rgba(16, 0, 29, 0.8);  
-     /*Efectodesenfoque (vidrio)*/
+     /*Desenfoque(vidrio)*/
     backdrop-filter: blur(10px);
     /* Compatibilidad Safari */   
     -webkit-backdrop-filter: blur(10px);      
@@ -75,7 +95,6 @@ header {
     top: 0; 
     /* Por encima del contenido */
     z-index: 1000;              
-    /*Borde de la barra*/
     border-bottom: 0px solid rgba(255, 255, 255,0);
     /*Sombra de la barra*/
     box-shadow:0 -30px 20px 45px rgba(0, 0, 0, 0.6);
@@ -83,111 +102,113 @@ header {
 
 /* Menú hamburguesa */
 .btn-m { 
-    font-size: 28px; 
+    font-size:35px;
     cursor: pointer; 
     margin-right: 15px; 
-    color: var(--Blanco); 
-}
-
+    color: var(--Blanco); }
 /* Contenedor del logo */
 .logo-container { 
     flex-grow: 1; 
     display: flex; 
-    align-items: center; 
-}
-
-/* Botón del logo (para volver al inicio) */
+    align-items: center; }
+/* Botón logo(volver al inicio) */
 .logo-btn { 
     background: none; 
     border: none; 
     padding: 0; 
-    cursor: pointer; 
-}
-
+    cursor: pointer; }
 /* Imagen del logo principal */
 .logo-main { 
     height: 40px; 
     width: auto; 
-    display: block; 
-}
+    display: block; }
+
 
 /*=== MENÚ LATERAL (SIDEBAR) == */
 .sidebar {
-    position: fixed; 
-    top: 0; 
-    left: 0;                
-    /* Oculto fuera d la pantalla */
-    width: 280px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
     height: 100%;
-    background: rgba(16, 0, 29,1);
-    z-index: 2000; 
+    background: rgba(16, 0, 29, 1);
+    z-index: 2000;
     padding-top: 20px;
-    transform:translateX(-100%);
-    transition:transform 0.5s
-    cubic-bezier(0.25,0.46,0.45,0.94);  
-    will-change:transform;
-}
-
-/* Clase activa mostrar el menú */
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    overflow-y: auto; }
+/* Activa el menú */
 .sidebar.active {
-    transform:translateX(0);
-    box-shadow: 10px 0 15px 
-    rgba(0, 0, 0, 0.9);
-}
+    transform: translateX(0);
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.9);}
 
-/* Enlaces del menú lateral */
-.sidebar a { 
-    display: block; 
-    padding: 15px 25px; 
-    color: white; 
-    text-decoration: none; 
-    font-size: 19px; 
-    transition:background 0.2s;
-}
+/* Enlaces del menú */
+.sidebar a {
+    display: block;
+    padding: 15px 28px;
+    color: var(--Menta);
+    text-decoration: none;
+    font-size: 19px;
+    transition: background 0.2s;}
 
-/* ==== OVERLAY (FONDO OSCURO) == */
-.overlay { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+/* Contenedor de la X */
+.sidebar-header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    margin-bottom: 20px;}
+
+.btn-cerrar {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    cursor: pointer;
+    color: var(--Blanco);
+    transition: 0.3s;
+    -webkit-tap-highlight-color:
+    transparent; }
+.btn-cerrar:hover{
+    color:var(--Purpura);
+    transform:rotate(90deg);}
+
+/* === OVERLAY (FONDO OSCURO) === */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     opacity: 0;
-    visibility:hidden;
-
-    /* suavidad */
-    transition:opacity 0.5s ease,
-    visibility 0.5s;
-    z-index: 1500;
-}
-
-/* Overlay activo */
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+    z-index: 1500;}
 .overlay.active {
     opacity: 1;
-    visibility: visible;
-    }
+    visibility: visible;}
+
 /*===== CARRUSEL DE IMÁGENES === */
 .slider { 
     width: 100%; 
     aspect-ratio: 16 / 9;       
-    /* Proporción pantalla ancha */
     position: relative; 
     overflow: hidden;           /* Oculta el desbordamiento */
-    touch-action: pan-y;        
-    /* Mejora el touch vertical */
-}
-
+    touch-action: pan-y;}
+    
 /*Contenedor de toda diapositivas */
 .slides { 
     display: flex; 
-    width: 400%;                /* 4 diapositivas = 400% del ancho */
+    width: 400%;                
+    /*4 diapositivas = 400% ancho */
     height: 100%; 
     transition: transform 0.5s 
     cubic-bezier(0,.51,.07,.04); 
     will-change: transform;     
-    /* Optimización rendimiento */
-}
+    /* Optimización rendimiento */}
 
 /* Cada diapositiva individual */
 .slide { 
@@ -196,16 +217,53 @@ header {
     background-size: cover; 
     background-position: center; 
     display: flex; 
-    align-items: flex-end;       /* Texto en la parte inferior */
+    align-items: flex-end;       
+    /* Texto en la parte inferior */
     padding: 40px 20px; 
     box-sizing: border-box;
+    position:relative;
+    overflow:hidden;
+}
+/* Esta capa pone el degradado en TODOS los slides automáticamente */
+.slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Tu degradado aquí */
+    background: linear-gradient(to top, var(--fondo) 0%, transparent 40%);
+    z-index: 1; /* Se pone sobre la imagen */
 }
 
-/* Título de cada diapositiva */
-.slide h3 { 
-    font-size: 24px; 
-    margin: 0; 
+/* Asegura que el texto quede por encima de la sombra */
+.slide h3 {
+    position: relative;
+    z-index: 2; 
+    font-size: 24px;
+    margin: 0;
+    position:relative;
+    z-index:2;
 }
+   /* carrusel*/
+.slide--bienvenida{
+    background-image:linear-gradient(to top,
+var(--fondo)0%, transparent 30%),
+    
+    url('../assets/img/imagen1.jpg');}
+    
+    
+    .slide--esperanza{
+    background-image:url('../assets/img/imagen2.jpg');}
+    
+    
+    .slide--alabanzas{
+    background-image:url('../assets/img/imagen3.jpg');}
+    
+    
+    .slide--adoracion{
+    background-image:url('../assets/img/imagen4.jpg');}
 
 /* Contenedor de los puntos */
 .dots {
@@ -225,98 +283,89 @@ header {
     border-radius: 50%;
     background: rgba(255,255,255,0.3); 
     cursor: pointer; 
-    transition: 0.4s;
-}
+    transition: 0.4s;}
 
-/* Punto activo (diapositiva actual) */
+/* Punto (diapositiva actual) */
 .dot.active { 
     background:#ffffff; 
-    width: 25px;                /* Se alarga horizontalmente */
-    border-radius: 5px; 
-}
-
+    width: 25px;                
+    /* Se alarga horizontalmente */
+    border-radius: 5px; }
 /* == SECCIONES GENERALES ======= */
-/* Contenedor de sec*/
 .sec { padding: 15px; }
 
-/* Título de sección con línea decorativa */
+
+/* Títulos con líneas decorativas */
 .t-sec { 
     display: flex; 
     align-items: center; 
     font-size: 20px; 
     margin: 25px 0 15px; 
-    font-weight: bold; 
-}
+    font-weight:600; }
 
-/* Línea decorativajunto al título */
+/* Líneas junto al título */
 .linea { 
     width: 5px; 
     height: 25px; 
-    background: var(--Blanco); 
+    background: var(--Menta); 
     margin-right: 12px; 
-    border-radius: 10px; 
-}
+    border-radius: 10px; }
 
-/* === CATÁLOGO ==== */
+/* ===SECCIÓN D CATÁLOGO ==== */
 .filtros { 
     display: flex; 
     gap: 10px; 
     overflow-x: auto;
     padding: 10px 0; 
-    scrollbar-width: none;    
-}
-
-/* Oculta scrollbar en Chrome/Safari */
+    scrollbar-width: none; }
+/* Oculta scrollbar Chrome/Safari */
 .filtros::-webkit-scrollbar { display: none; }
 
-/* Botón de filtro */
+
+/* Botón de */
 .btn-f { 
     background: #1a1a24; 
     border: 1px solid #333; 
     color:#ffffff; 
     padding: 10px 20px; 
     border-radius: 25px; 
-    white-space: nowrap;        /* Evita que el texto se divida */
-    cursor: pointer; 
-}
+    white-space: nowrap;        
+/* Evita que el texto se divida */
+    cursor: pointer; }
 
-/* Botón de filtro activo */
+/* Botón selecionado */
 .btn-f.active { 
-    background: var(--Blanco); 
+    background: var(--Menta); 
     color: black; 
-    font-weight: bold; 
-}
+    font-weight: 600; }
 
 /*=== TARJETAS DE VIDEOS ===== */
 .card { 
     background: #16161f; 
     border-radius: 12px; 
     overflow: hidden; 
-    margin-bottom: 25px; 
-}
+    margin-bottom: 25px; }
 
-/* Contenedor responsivo de video (aspect ratio 16:9) */
+/* Contenedor video (ratio 16:9) */
 .vid { 
     position: relative; 
-    padding-bottom: 56.25%;     /* 9/16 = 56.25% para mantener proporción */
+    padding-bottom: 56.25%;     
+    /* 9/16 para proporción */
     height: 0; 
-    background: #000; 
-}
+    background: #000; }
 
-/* Iframe del video posicionado absolutamente */
+/* Iframe video posicionado absolutamente */
 .vid iframe { 
     position: absolute; 
     top: 0; 
     left: 0; 
     width: 100%; 
     height: 100%; 
-    border: 0; 
-}
-
-/* Información del video (título/descripción) */
+    border: 0; }
+/* Información del video */
 .v-info { 
     padding: 15px; 
-    font-weight: 500; 
+    font-weight: 600; 
     color:#ffffff; 
 }
 
@@ -337,10 +386,10 @@ header {
     margin-bottom: 20px;
 }
 
-/* Párrafos de sección Conócenos */
+/* Párrafos*/
 .conocenos-box p {
     line-height: 1.6;
-    color: #FFFFFF;
+    color: var(--Blanco);
 }
 
 /* FOOTER: Pie de página */
@@ -360,7 +409,8 @@ header {
 .footer-rcn-style .f-logo {
     height: 55px;
     margin-bottom: 35px;
-    filter: brightness(1.1); /* Resalta un poco el logo sobre el fondo */
+    filter: brightness(1.1); 
+    /*Resalta el logo del fondo */
 }
 /* Iconos de Redes (Sutiles y blancos) */
 .f-redes-rcn {
@@ -426,12 +476,9 @@ body {
 
 
 
-
-
-
-
 /* == ANIMACIONES ======== */
-/* Animación de pulso para el indicador "EN VIVO" */
+
+/* pulso "EN VIVO" */
 @keyframes pulse { 
     0% { opacity: 1; } 
     50% { opacity: 0.5; }        /* Se atenúa a la mitad */
@@ -450,7 +497,7 @@ body {
         font-size: 18px;
     }
 }
-/* imagenes de ithiel */
+/* imagenes de ithieltv */
 .grid-container {
     display: flex;             
     gap: 15px;
@@ -464,14 +511,11 @@ body {
 
     margin-left:  -15px; 
     margin-right: -15px;
-    
-    
 }
     
 .grid-container::-webkit-scrollbar {
     display: none;             /* Oculta la barra en Chrome/Safari */
 }
-
 .grid-card {
     flex: 0 0 52%;             /* Tamaño pequeño para que quepan varias */
     max-width: 185px;
@@ -547,7 +591,7 @@ body {
 #modalTitulo {
     font-size: 22px;
     margin: 0 0 10px 0;
-    color: var(--Blanco);
+    color: var(--Menta);
 }
 
 #modalDescripcion {
@@ -569,7 +613,7 @@ body {
     padding: 12px 25px;
     border-radius: 30px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -579,7 +623,7 @@ body {
 }
 
 .btn-download {
-    background: var(--Blanco);
+    background: var(--Menta);
     color: #0b1627;
 }
 
