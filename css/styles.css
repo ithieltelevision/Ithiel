@@ -29,7 +29,7 @@ body {
     font-weight:400;
     
     overflow-x: hidden; 
-    overflow-y: hidden; 
+    overflow-y: auto; 
     /*Evita desplazam horizontal */
     scroll-behavior: smooth;    
     /*suave al hacer clic en enlaces */
