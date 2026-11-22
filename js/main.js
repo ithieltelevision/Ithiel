@@ -7,7 +7,35 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Animación de entrada (Loader)
-window.addEventListener('load', () => {
+// Animación de entrada (Loader)
+// Se activa con el DOM listo (no se espera a que carguen imágenes ni recursos pesados)
+deleteLoader();
+
+function deleteLoader() {
+    const loader = document.getElementById('loader');
+    const TIEMPO_EXPOSICION = 1200;
+
+    if (loader) {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 600);
+        }, TIEMPO_EXPOSICION);
+    }
+}
+
+// Red de seguridad: si por algún motivo (localStorage bloqueado, error de script, etc.)
+// el DOMContentLoaded ya pasó o no se disparó, libera el loader tras 3 segundos.
+setTimeout(() => {
+    const loader = document.getElementById('loader');
+    if (loader && loader.style.display !== 'none') {
+        loader.style.opacity = '0';
+        loader.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}, 3000);
     const loader = document.getElementById('loader');
     const TIEMPO_EXPOSICION = 1200;
     
